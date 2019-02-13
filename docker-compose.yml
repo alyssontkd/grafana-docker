@@ -1,0 +1,18 @@
+version: '3'
+services:
+   grafana:
+     build:
+        context: ./
+        dockerfile: Dockerfile
+     image: vertenti/grafana:5.3.2
+     container_name: 'grafana-server'
+     ports:
+        - 3000:3000
+          #user: "472"
+     volumes:
+             #- /var/www/docker/glpi-cooperforte-docker/grafana/data:/var/lib/grafana
+          - grafana-storage:/var/lib/grafana
+          #- /var/www/docker/glpi-cooperforte-docker/grafana/conf:/etc/grafana
+          #- /var/www/docker/glpi-cooperforte-docker/grafana/log:/var/log/grafana
+volumes:
+    grafana-storage:
